@@ -1,6 +1,8 @@
 # Bass Trainer
 
-A simple Python app to help you learn bass notes and note order through interactive quizzes.
+A simple Python-based bass note training application with two quiz modes:  
+- **Bass Note Quiz** — identify notes on the bass fretboard  
+- **Note Order Quiz** — guess the next or previous note in the chromatic scale  
 
 ---
 
@@ -33,23 +35,19 @@ pip install -r requirements.txt
 ```
 
 > Alternatively, install individually:
-
 ```bash
 pip install numpy sounddevice
 ```
 
 ---
 
-## Running from Python
-
-Open a terminal or PowerShell in the project folder and run:
-
+## Run From Python
+1. Clone or download this repository.
+2. Open a terminal/PowerShell in the project folder.
+3. Run the app:
 ```bash
 python bass_trainer.py
 ```
-
-- You can select either **Bass Note Quiz** or **Note Order Quiz**.
-- Note style can be **sharp**, **flat**, or **both** (both sharps and flats accepted).
 
 ---
 
@@ -65,32 +63,32 @@ pip install pyinstaller
 
 ---
 
-### Run PyInstaller via Python module (recommended)
-
+### Build the Executable
+PyInstaller will generate a `dist/bass_trainer.exe` file.
 ```bash
 python -m PyInstaller --onefile --windowed --icon=bass_trainer_icon.ico bass_trainer.py
+
 ```
 
-This will generate a `dist/bass_trainer.exe` file.
+Must modify PATH before running
+```bash
+pyinstaller --onefile --windowed --icon=bass_trainer_icon.ico bass_trainer.py
+```
 
----
+#### If PyInstaller is not found in PowerShell
+PowerShell may not have the Scripts folder in your PATH.
 
-### Optional: Temporary PATH fix
-
-If PyInstaller is installed but not found:
-
-1. Find your user-base path:
-
-```powershell
+Find where PyInstaller is installed:
+```bash
 python -m site --user-base
 ```
 
-2. Add the Scripts folder to your PATH:
+It will output something like:
+```bash
+C:\Users\<username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages
+```
 
+Add the Scripts folder temporarily to PATH (replace `<username>` with yours):
 ```powershell
 $env:Path += ";C:\Users\<username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python\Scripts"
 ```
-
-3. Then run PyInstaller as usual.
-
----
