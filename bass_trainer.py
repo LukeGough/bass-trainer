@@ -234,10 +234,12 @@ class BassNoteTrainer:
 
         container=tk.Frame(win)
         container.pack(fill="both",expand=True)
-        canvas=tk.Canvas(container,width=min(width,900),height=min(height+10,400))
+
+        canvas = tk.Canvas(container, width=min(width, 1100), height=min(height + 50, 600), bg="#ffffff")
         hbar=tk.Scrollbar(container,orient="horizontal",command=canvas.xview)
         vbar=tk.Scrollbar(container,orient="vertical",command=canvas.yview)
         canvas.configure(xscrollcommand=hbar.set,yscrollcommand=vbar.set)
+        
         hbar.pack(side="bottom",fill="x")
         vbar.pack(side="right",fill="y")
         canvas.pack(side="left",fill="both",expand=True)
