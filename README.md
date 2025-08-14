@@ -69,26 +69,3 @@ PyInstaller will generate a `dist/bass_trainer.exe` file.
 python -m PyInstaller --onefile --windowed --icon=bass_trainer_icon.ico bass_trainer.py
 
 ```
-
-Must modify PATH before running
-```bash
-pyinstaller --onefile --windowed --icon=bass_trainer_icon.ico bass_trainer.py
-```
-
-#### If PyInstaller is not found in PowerShell
-PowerShell may not have the Scripts folder in your PATH.
-
-Find where PyInstaller is installed:
-```bash
-python -m site --user-base
-```
-
-It will output something like:
-```bash
-C:\Users\<username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages
-```
-
-Add the Scripts folder temporarily to PATH (replace `<username>` with yours):
-```powershell
-$env:Path += ";C:\Users\<username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python\Scripts"
-```
