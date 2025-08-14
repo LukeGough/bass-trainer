@@ -222,7 +222,7 @@ class BassNoteTrainer:
     # -----------------------------
     def show_notes_chart(self):
         frets=list(range(0,13))
-        strings_order=[4,3,2,1]
+        strings_order=[1,2,3,4]
         cell_w,cell_h=70,48
         left_label_w=60
         top_label_h=30
