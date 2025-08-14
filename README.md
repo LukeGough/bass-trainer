@@ -1,48 +1,164 @@
-# Installation
+# Bass Trainer
 
-## Prerequisites
+A simple Python app to help you learn bass notes and note order through interactive quizzes.
 
-* Python 3.10+ ([Download here](https://www.python.org/downloads/))
-* `pip` package manager
+---
 
-## Dependencies
+## Installation
+
+### Prerequisites
+
+- Python 3.10+ ([Download here](https://www.python.org/downloads/))
+- `pip` package manager
+
+---
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/username/bass-trainer.git
+cd bass-trainer
+```
+
+Or download as a ZIP and extract.
+
+---
+
+### Dependencies
 
 Install required Python packages:
-`pip install numpy sounddevice`
 
-# Run From Python
+```bash
+pip install -r requirements.txt
+```
 
-1. Clone or download this repository.
-2. Open a terminal/PowerShell in the project folder.
-3. Run the app with Python:
-`python bass_trainer.py`
+> Alternatively, install individually:
 
-# Packaging as a Windows Executable (.exe)
+```bash
+pip install numpy sounddevice
+```
 
-## Install PyInstaller
-`pip install pyinstaller`
+---
 
-### PyInstaller not be addeed to PATH
-* Windows PowerShell doesn’t always include the folder where pip installs scripts in the PATH.
-* Even though pyinstaller is installed, PowerShell may not be able to find it.
+## Running from Python
 
-Find where PyInstaller is installed
-`python -m site --user-base`
+Open a terminal or PowerShell in the project folder and run:
 
-It will output something like:
-`C:\Users\<username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages`
+```bash
+python bass_trainer.py
+```
 
-Add that folder to your PATH temporarily
-* Replace <username> with your Windows username.
-`$env:Path += ";C:\Users\<username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python\Scripts"`
+- You can select either **Bass Note Quiz** or **Note Order Quiz**.
+- Note style can be **sharp**, **flat**, or **both** (both sharps and flats accepted).
 
-## Build the Executable
-`pyinstaller --onefile --windowed --icon=bass_trainer_icon.ico bass_trainer.py`
+---
 
-## If Python was installed from the Microsoft Store
-* The user Scripts folder isn’t exactly where PowerShell expects.
+## Packaging as a Windows Executable (.exe)
 
-If PowerShell still can’t find pyinstaller.exe, here is a way to run PyInstaller without messing with PATH:
+### Install PyInstaller
 
-Run PyInstaller via Python module instead of calling pyinstaller directly:
-`python -m PyInstaller --onefile --windowed --icon=bass_trainer_icon.ico bass_trainer.py`
+```bash
+pip install pyinstaller
+```
+
+> ⚠ Note: On Windows, PowerShell may not automatically recognize `pyinstaller` if Python is installed via Microsoft Store.
+
+---
+
+### Run PyInstaller via Python module (recommended)
+
+```bash
+python -m PyInstaller --onefile --windowed --icon=bass_trainer_icon.ico bass_trainer.py
+```
+
+This will generate a `dist/bass_trainer.exe` file.
+
+---
+
+### Optional: Temporary PATH fix
+
+If PyInstaller is installed but not found:
+
+1. Find your user-base path:
+
+```powershell
+python -m site --user-base
+```
+
+2. Add the Scripts folder to your PATH:
+
+```powershell
+$env:Path += ";C:\Users\<username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python\Scripts"
+```
+
+3. Then run PyInstaller as usual.
+
+---
+
+## Recommended `.gitignore`
+
+```gitignore
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+env/
+.vscode/
+.idea/
+dist/
+build/
+*.spec
+*.exe
+.DS_Store
+Thumbs.db
+```
+
+---
+
+## Notes
+
+- Bass Note Quiz plays the actual note, while Note Order Quiz focuses on note sequencing.
+- Selecting **both** in Note Style allows either sharp or flat equivalents as correct answers.but not found:
+
+1. Find your user-base path:
+
+```powershell
+python -m site --user-base
+```
+
+2. Add the Scripts folder to your PATH:
+
+```powershell
+$env:Path += ";C:\Users\<username>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python\Scripts"
+```
+
+3. Then run PyInstaller as usual.
+
+---
+
+## Recommended `.gitignore`
+
+```gitignore
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+env/
+.vscode/
+.idea/
+dist/
+build/
+*.spec
+*.exe
+.DS_Store
+Thumbs.db
+```
+
+---
+
+## Notes
+
+- Bass Note Quiz plays the actual note, while Note Order Quiz focuses on note sequencing.
+- Selecting **both** in Note Style allows either sharp or flat equivalents as correct answers.
